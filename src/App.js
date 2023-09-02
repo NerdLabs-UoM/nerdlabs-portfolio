@@ -1,4 +1,5 @@
 import './App.css';
+import ContactUs from './components/ContactUs/ContactUs';
 import NavBar from './components/NavBar/NavBar';
 import Home from './containers/HomePage/Home';
 
@@ -10,6 +11,7 @@ function App() {
       </header>
       <body className="App-body">
         <Home/>
+        <ContactUs/>
       </body>
     </div>
   );

@@ -1,0 +1,76 @@
+.sec{
+    @apply bg-black mx-auto bg-[url('../ContactUs/Eclipse.png')] bg-[length:800px_800px] bg-no-repeat bg-right-top h-screen;
+}
+
+.frm{
+    @apply grid justify-center items-center py-10 my-8;
+}
+.title{
+    @apply  text-white text-4xl font-semibold flex flex-initial ml-80 my-0 pt-10;
+}
+.content{
+    @apply mr-5;
+}
+.row{
+    @apply flex flex-row mb-3 ;
+}
+.inputDiv,
+.inputDivTxt{
+    @apply flex flex-col relative;
+}
+.inputDiv{
+    @apply h-14 py-0;
+}
+.inputDivTxt{
+    @apply h-36 py-0;
+}
+.field, .fieldEmail{
+    @apply bg-transparent border-[1px] border-white py-4 pl-6 w-96 rounded-full outline-none text-white  ;
+}
+.fieldEmail{
+    @apply w-[470px];
+}
+.msg{
+    @apply bg-transparent border-[1px] border-white py-4 pl-6 rounded-3xl resize-none h-36 outline-none text-white  ;
+}
+.field:focus, .fieldEmail:focus, .msg:focus{
+    @apply border-[2px] border-white;
+}
+.placehld{
+    @apply absolute text-white py-4 pl-6  pointer-events-none duration-200;
+}
+.field:focus~span, .field:valid~span,
+.fieldEmail:focus~span, .fieldEmail:valid~span,
+.msg:focus~span, .msg:valid~span{
+    @apply text-slate-400 text-xs transform translate-x-[-5px] py-1;
+}
+.warn{
+    @apply flex flex-row items-center py-0 pl-3 mt-1;
+}
+.err{
+    @apply text-red-600;
+}
+.image{
+    @apply w-4 h-4;
+}
+.lbl{
+    @apply text-white;
+}
+.bttn{
+    @apply border-solid border-purple-600 border-2 bg-purple-600 text-white text-sm font-semibold ml-1 py-1.5 px-4 rounded-full w-28 items-center justify-center;
+}
+.bttn:hover{
+    @apply bg-transparent border-solid border-2 border-purple-400;
+}
+.checkbox{
+    @apply flex flex-row mr-2;
+}
+.check{
+    @apply flex items-center ml-2 mb-20;
+}
+.cbox{
+    @apply w-4 h-4 border-[1px] border-white rounded-sm bg-transparent appearance-none;
+}
+.tick{
+    @apply w-4 h-4 absolute opacity-0;
+}
