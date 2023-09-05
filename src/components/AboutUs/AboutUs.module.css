@@ -1,0 +1,6 @@
+* {
+  @apply bg-black;
+}
+.topic1 {
+  @apply bg-black  justify-center  flex font-bold  text-7xl  mt-20  pr-4;
+}
