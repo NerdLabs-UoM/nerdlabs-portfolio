@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function NavBar() {
   return (
-    <div>NavBar</div>
-  )
+    <div className="bg-black text-white w-auto h-[100vh]">
+      <div>NavBar</div>
+    </div>
+  );
 }
 
-export default NavBar
+export default NavBar;

@@ -1,0 +1,38 @@
+/* cardStyles.css */
+.desktop2{
+  @apply bg-back-purple h-[120vh] overflow-hidden;
+}
+.desktop2_topic{
+  @apply text-center text-white text-[35px] font-normal;
+}
+.slide{
+  @apply flex overflow-x-hidden overflow-y-hidden;
+}
+.card {
+  @apply w-[300px] h-[550px] px-9 py-3 mb-[150px] mt-5 
+  box-content rounded-[80px] shadow-lg shadow-fuchsia-600 border-t border-fuchsia-500;
+}
+
+.card_title {
+  @apply h-[5%] text-center text-white text-[24px] font-normal leading-8 tracking-normal mb-9;
+}
+
+.card_image {
+  @apply pt-[5%] justify-center flex ;
+}
+
+.card_image img {
+  @apply w-[250px] h-[180px] rounded-2xl object-cover ;
+}
+.card_btn{
+  @apply flex items-center mt-4 md:justify-center;
+}
+.card_text {
+  @apply pt-2 pb-2 text-center text-white;
+}
+
+.card_button {
+  @apply text-lg font-bold text-center text-white w-[150px] h-9 px-[25px] py-[20px] 
+  bg-gradient-to-b from-light-purple via-dark-purple to-gray-900
+  rounded-[35px] items-center inline-flex absolute hover:cursor-pointer;
+}
