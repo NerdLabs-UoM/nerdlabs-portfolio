@@ -30,14 +30,15 @@
 .fieldEmail{
     @apply w-[470px];
 }
+
 .selector{
-    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white  w-[300px] h-[57px];
+    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white  w-[300px] h-[57px] ;
 }
 .downIcon{
     @apply w-7 h-7 ml-60 my-3.5;
 }
 .dropdown{
-    @apply bg-transparent mt-2 max-h-48 overflow-y-auto absolute;
+    @apply bg-purple-700 mt-1 ml-6 max-h-48 w-[250px] overflow-y-auto z-[1] absolute;
 }
 .options{
     @apply p-2 text-sm hover:bg-slate-50 text-white;

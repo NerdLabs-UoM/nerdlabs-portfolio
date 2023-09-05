@@ -5,6 +5,7 @@ import downIcon from "../ContactUs/down-arrow.png";
 import stylesContact from "./ContactUs.module.css";
 function ContactUs() {
     const [countries, setCountries] = useState([]);
+    const [selected,setSelected] = useState("");
   useEffect(() => {
     fetch("https://restcountries.com/v2/all?fields=name")
       .then((res) => res.json())
