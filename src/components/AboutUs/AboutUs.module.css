@@ -4,3 +4,13 @@
 .topic1 {
   @apply bg-black  justify-center  flex font-bold  text-7xl  mt-20  pr-4;
 }
+
+.img1 {
+  @apply w-52 h-auto justify-center flex  mt-10 mx-72; 
+}
+.img2 {
+  @apply w-52 h-auto justify-center flex  mt-10 mx-72; 
+}
+.img3 {
+  @apply w-52 h-auto justify-center flex  mt-10 mx-72; 
+}
