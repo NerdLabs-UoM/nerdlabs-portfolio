@@ -14,49 +14,38 @@ const WebCards = () => {
   const card3Ref = useRef(null);
   const desktop2Ref = useRef(null);
   const slideRef = useRef(null);
+  const [arrowDisable, setArrowDisable] = useState(true);
+  const unsplashed = "https://source.unsplash.com/200x200/";
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: desktop2Ref.current,
-        start:"top top",
-        end:"+=100",
-        markers:true,
-        scrub:1
+  const handleHorizantalScroll = (element, speed, distance, step) => {
+    let scrollAmount = 0;
+    const slideTimer = setInterval(() => {
+      element.scrollLeft += step;
+      scrollAmount += Math.abs(step);
+      if (scrollAmount >= distance) {
+        clearInterval(slideTimer);
       }
-    })
-    .to(
-      card1Ref.current,
-      {
-        xPercent:100,
-        duration:2,
-        ease:"linear"
-      })
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: desktop2Ref.current,
-          start:"100 top",
-          end:"+=100",
-          markers:true,
-          scrub:1
-        }
-      })
-      // .to(card1Ref.current,{xPercent:150,opacity:0})
-      .to(card2Ref,{x:100,opacity:1})
-
-  }, []);
-
-
+      if (element.scrollLeft === 0) {
+        setArrowDisable(true);
+      } else {
+        setArrowDisable(false);
+      }
+    }, speed);
+  };
 
   return (
     <React.Fragment>
       <div className={s.desktop2} ref={desktop2Ref}>
-      <div className="w-[1112.79px] h-[1092.05px] origin-top-left rotate-[19.45deg] bg-gradient-to-b from-purple-500 to-black rounded-full opacity-11
-      " />
         <div className={s.desktop2_topic}>Featured Projects</div>
         <div className={s.slide} ref={slideRef}>
+          {Card.map((placement, i) => (
+            <img
+              key={i}
+              loading="lazy"
+              alt={placement}
+              src={unsplashed + `?${placement}`}
+            />
+          ))}
           <Card
             ref={card1Ref}
             cardTitle="Fingerprint-based ATM system"
@@ -70,7 +59,11 @@ const WebCards = () => {
             cardImgCls={s.card_image}
             cardtextCls={s.card_text}
             cardBtnCls={s.card_button}
-            style={{ transform: "translateX(0%)", opacity: "1" }}
+            // style={{ transform: "translateX(50%)", opacity: "1" }}
+            key={i}
+            loading="lazy"
+            alt={placement}
+            src={unsplashed + `?${placement}`}
           />
 
           <Card
@@ -78,17 +71,21 @@ const WebCards = () => {
             cardTitle="Advanced Employee Management System"
             cardImg={management}
             text="An advanced employee management system 
-streamlines HR tasks, automates payroll, tracks 
-attendance, manages benefits, and enhances 
-employee engagement. It optimizes workforce 
-operations, fostering efficiency and collaboration for 
-organizational success."
+            streamlines HR tasks, automates payroll, tracks 
+            attendance, manages benefits, and enhances 
+            employee engagement. It optimizes workforce 
+            operations, fostering efficiency and collaboration for 
+            organizational success."
             cardContainerCls={s.card}
             cardTitleCls={s.card_title}
             cardImgCls={s.card_image}
             cardtextCls={s.card_text}
             cardBtnCls={s.card_button}
-            style={{ transform: "translateX(-200%)", opacity: "1" }}
+            // style={{ transform: "translateX(-100%)", opacity: "1" }}
+            key={i}
+            loading="lazy"
+            alt={placement}
+            src={unsplashed + `?${placement}`}
           />
 
           <Card
@@ -104,9 +101,30 @@ organizational success."
             cardImgCls={s.card_image}
             cardtextCls={s.card_text}
             cardBtnCls={s.card_button}
-            style={{ transform: "translateX(-300%)", opacity: "1" }}
+            // style={{ transform: "translateX(-200%)", opacity: "1" }}
+            key={i}
+            loading="lazy"
+            alt={placement}
+            src={unsplashed + `?${placement}`}
           />
         </div>
+      </div>
+      <div class="button-contianer">
+        <button
+          onClick={() => {
+            handleHorizantalScroll(slideRef.current, 25, 100, -10);
+          }}
+          disabled={arrowDisable}
+        >
+          Left
+        </button>
+        <button
+          onClick={() => {
+            handleHorizantalScroll(slideRef.current, 25, 100, 10);
+          }}
+        >
+          Right
+        </button>
       </div>
     </React.Fragment>
   );

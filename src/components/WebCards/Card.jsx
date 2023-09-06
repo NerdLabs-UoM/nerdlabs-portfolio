@@ -1,6 +1,4 @@
-// import react from '@heroicons/react';
 import React, { forwardRef } from "react";
-// import Card from "./ab";
 import s from "./WebCards.module.css";
 
 const Card = (
