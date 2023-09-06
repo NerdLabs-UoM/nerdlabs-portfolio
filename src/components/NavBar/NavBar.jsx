@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react'
+import NavLinks from './NavLinks'
+import NavLogo from './NavLogo'
 
 function NavBar() {
   return (
-    <div className="bg-black text-white w-auto h-[100vh]">
-      <div>NavBar</div>
+    <div className = 'flex items-center justify-around bg-black sm:h-12'>
+      <NavLogo/>
+      <NavLinks/>
     </div>
-  );
+  )
 }
 
 export default NavBar;
