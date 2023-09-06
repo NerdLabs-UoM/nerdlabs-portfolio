@@ -1,6 +1,6 @@
 /* cardStyles.css */
 .desktop2{
-  @apply bg-back-purple h-[120vh] overflow-hidden;
+  @apply bg-black h-[120vh] overflow-hidden;
 }
 .desktop2_topic{
   @apply text-center text-white text-[35px] font-normal;

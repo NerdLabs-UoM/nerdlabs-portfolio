@@ -53,6 +53,8 @@ const WebCards = () => {
   return (
     <React.Fragment>
       <div className={s.desktop2} ref={desktop2Ref}>
+      <div className="w-[1112.79px] h-[1092.05px] origin-top-left rotate-[19.45deg] bg-gradient-to-b from-purple-500 to-black rounded-full opacity-11
+      " />
         <div className={s.desktop2_topic}>Featured Projects</div>
         <div className={s.slide} ref={slideRef}>
           <Card
