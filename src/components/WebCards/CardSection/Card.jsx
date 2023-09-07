@@ -1,6 +1,4 @@
 import React, { forwardRef } from "react";
-import s from "./WebCards.module.css";
-
 const Card = (
   {
     text,
@@ -11,7 +9,8 @@ const Card = (
     cardImgCls,
     cardtextCls,
     cardBtnCls,
-    style
+    style,
+    card_btn
   },
   ref
 ) => {
@@ -19,14 +18,13 @@ const Card = (
     <div className={cardContainerCls} ref={ref} style={style}>
       <div className={cardTitleCls}>{cardTitle}</div>
       <div className={cardImgCls}>
-        <img src={cardImg} alt="image" />
+        <img src={cardImg} alt="card-image" />
       </div>
       <p className={cardtextCls}>{text}</p>
-      <div className={s.card_btn}>
+      <div className={card_btn}>
         <button className={cardBtnCls}>Read More</button>
       </div>
     </div>
   );
 };
-
 export default forwardRef(Card);
