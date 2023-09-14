@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import warning from "../ContactUs/warningIcon.png";
-import check from "../ContactUs/tick 1.png";
-import downIcon from "../ContactUs/down-arrow.png";
+import warning from "../../assets/warningIcon.png";
+import check from "../../assets/tick 1.png";
+import downIcon from "../../assets/down-arrow.png";
 import stylesContact from "./ContactUs.module.css";
 function ContactUs() {
-    const [countries, setCountries] = useState([]);
-    const [selected,setSelected] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [inputValue, setInputValue] = useState()
+  const [selected, setSelected] = useState("");
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     fetch("https://restcountries.com/v2/all?fields=name")
       .then((res) => res.json())
       .then((data) => {
-        setCountries (data);
+        setCountries(data);
       });
   }, []);
   return (
@@ -63,17 +65,29 @@ function ContactUs() {
             </div>
             <div className={stylesContact.content}>
               <div className={stylesContact.selectBox}>
-                <div className={stylesContact.selector}>
+                <div
+                  onClick={() => setOpen(!open)}
+                  className={stylesContact.selector}
+                >
                   <span className={stylesContact.placehld}>Country*</span>
                   <img className={stylesContact.downIcon} src={downIcon} />
                 </div>
-                <ul className={stylesContact.dropdown}>
-                    {countries?.map((country)=>(
-                        <li key={country?.name}
-                        className={stylesContact.options}>
-                            {country?.name}
-                        </li>
-                    ))}
+                <ul
+                  className={` bg-purple-700 mt-1 ml-6 w-[250px] overflow-y-auto z-[1] absolute ${
+                    open ? "max-h-48" : "max-h-0"
+                  }`}
+                >
+                  {countries?.map((country) => (
+                    <li
+                      key={country?.name}
+                      className={stylesContact.options}
+                      onClick={() => {
+                        if (country?.name !== selected) setSelected();
+                      }}
+                    >
+                      {country?.name}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className={stylesContact.warn}>

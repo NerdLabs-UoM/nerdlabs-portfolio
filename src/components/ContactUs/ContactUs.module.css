@@ -1,5 +1,5 @@
 .sec{
-    @apply bg-black mx-auto bg-[url('../ContactUs/Eclipse.png')] bg-[length:800px_800px] bg-no-repeat bg-right-top h-screen;
+    @apply bg-black mx-auto bg-[url('../../assets/Eclipse.png')] bg-[length:800px_800px] bg-no-repeat bg-right-top h-screen;
 }
 
 .frm{
@@ -32,13 +32,10 @@
 }
 
 .selector{
-    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white  w-[300px] h-[57px] ;
+    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white  w-[300px] h-[57px];
 }
 .downIcon{
     @apply w-7 h-7 ml-60 my-3.5;
-}
-.dropdown{
-    @apply bg-purple-700 mt-1 ml-6 max-h-48 w-[250px] overflow-y-auto z-[1] absolute;
 }
 .options{
     @apply p-2 text-sm hover:bg-slate-50 text-white;
@@ -46,7 +43,7 @@
 .msg{
     @apply bg-transparent border-[1px] border-white py-4 pl-6 rounded-3xl resize-none h-36 outline-none text-white w-[790px]  ;
 }
-.field:focus, .fieldEmail:focus, .msg:focus{
+.field:focus, .fieldEmail:focus, .msg:focus, .selector:focus{
     @apply border-[2px] border-white;
 }
 .placehld{
@@ -54,7 +51,8 @@
 }
 .field:focus~span, .field:valid~span,
 .fieldEmail:focus~span, .fieldEmail:valid~span,
-.msg:focus~span, .msg:valid~span{
+.msg:focus~span, .msg:valid~span
+{
     @apply text-slate-400 text-xs transform translate-x-[-5px] py-1;
 }
 .warn{
