@@ -15,10 +15,10 @@ export default function AboutUs() {
       </div>
 
       <div>
-        <p style={{ color:" violet"}}className={stylescontent.intro1}>
+        <span style={{ color:" violet"}}className={stylescontent.intro1}>
           We specialize in delivering tailored IT solutions that drive growth,
           efficiency, and digital transformation
-        </p>
+        </span>
       </div>
 
       <div>
