@@ -24,6 +24,9 @@ export default function AboutUs() {
       <div>
         <div className={stylescontent.images}>
           <div>
+            <div className="subtopic1">
+              <span></span>
+            </div>
             <img className={stylescontent.img1} src={image1} alt="image1" />
           </div>
           <div>
