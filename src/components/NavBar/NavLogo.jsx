@@ -3,7 +3,7 @@ import Logo from '../../assets/Logo'
 
 function NavLogo() {
   return (
-    <div className='border border-gray-500 rounded p-1'>
+    <div className='border border-gray-800 rounded p-1'>
         <Logo/>
     </div>
   )
