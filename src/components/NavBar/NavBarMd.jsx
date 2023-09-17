@@ -1,20 +1,21 @@
-import React from "react";
-import { useState } from "react";
-import DialogBox from "./DialogBox";
+import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
-];
+const navigation =[
+  { name: 'Home', href: '#', current: true },
+  { name: 'Projects', href: '#', current: false },
+  { name: 'About', href: '#', current: false },
+  { name: 'Contact', href: '#', current: false },
+  { name: 'Team', href: '#', current: false },
+]
+
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ')
 }
 
 function NavBarMd() {
   const [mobileViewer, usemobileViewer] = useState(false);
-
+  
   return (
     <div className="flex lg:hidden">
       <button
@@ -71,21 +72,25 @@ function NavBarMd() {
           </div>
 
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {userNavigation.map((user) => {
-                  <a
-                    key={user.name}
-                    href={user.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    aria-current={user.current ? "page" : undefined}
-                  >
-                    {user.name}
-                  </a>;
-                })}
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={classNames(
+                        item.current
+                        ?"bg-gray-900 text-white"
+                        :"text-gray-300 hover:bg-violet-600 hover:text-white",
+                        "rounded-md px-3 py-2 text-sm font-medium"
+                      )}
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
         </Dialog.Panel>
       </Dialog>
     </div>
