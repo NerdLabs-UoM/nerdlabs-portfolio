@@ -78,12 +78,7 @@ function NavBarMd() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className={classNames(
-                        item.current
-                        ?"bg-gray-900 text-white"
-                        :"text-gray-300 hover:bg-violet-600 hover:text-white",
-                        "rounded-md px-3 py-2 text-sm font-medium"
-                      )}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
                     </a>
