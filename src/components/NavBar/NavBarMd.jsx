@@ -9,10 +9,6 @@ const navigation =[
   { name: 'Team', href: '#', current: false },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 function NavBarMd() {
   const [mobileViewer, usemobileViewer] = useState(false);
   
