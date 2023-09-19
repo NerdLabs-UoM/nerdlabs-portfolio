@@ -73,7 +73,7 @@ function ContactUs() {
                   <img className={stylesContact.downIcon} src={downIcon} />
                 </div>
                 <ul
-                  className={` bg-purple-700 mt-1 ml-6 w-[250px] overflow-y-auto z-[1] absolute ${
+                  className={` bg-purple-700 mt-1 ml-6 w-[350px] md:w-[250px] overflow-y-auto z-[1] absolute ${
                     open ? "max-h-48" : "max-h-0"
                   }`}
                 >

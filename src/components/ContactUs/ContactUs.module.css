@@ -1,53 +1,53 @@
 .sec{
-    @apply bg-black mx-auto bg-[url('../../assets/Eclipse.png')] bg-[length:800px_800px] bg-no-repeat bg-right-top h-screen;
+    @apply bg-black mx-auto bg-[url('../../assets/Eclipse.png')] bg-[length:450px_450px] md:bg-[length:800px_800px] bg-no-repeat bg-right-top h-auto md:h-screen;
 }
 
 .frm{
-    @apply grid justify-center items-center py-10 my-8;
+    @apply flex flex-col justify-center items-center py-4 my-4 md:grid md:py-10 md:my-8;
 }
 .title{
-    @apply  text-white text-4xl font-semibold flex flex-initial ml-80 my-0 pt-10;
+    @apply  text-white text-3xl md:text-4xl font-semibold pt-2 text-center md:flex md:ml-20 lg:ml-40 xl:ml-80 md:my-0 md:pt-10;
 }
 .content{
-    @apply mr-5;
+    @apply mb-4 md:mr-5 md:mb-0;
 }
 .row{
-    @apply flex flex-row mb-3 ;
+    @apply grid grid-cols-1 md:flex md:flex-row md:mb-3 ;
 }
 .inputDiv,
 .inputDivTxt{
     @apply flex flex-col relative;
 }
 .inputDiv{
-    @apply h-14 py-0;
+    @apply h-12 md:h-14 md:py-0;
 }
 .inputDivTxt{
-    @apply h-36 py-0;
+    @apply h-28 md:h-36 md:py-0;
 }
 .field, .fieldEmail{
-    @apply bg-transparent border-[1px] border-white py-4 pl-6 w-96 rounded-full outline-none text-white  ;
+    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white py-3 pl-3 w-[400px] md:py-4 md:pl-6 md:w-96   ;
 }
 .fieldEmail{
-    @apply w-[470px];
+    @apply w-[400px] md:w-[470px];
 }
 
 .selector{
-    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white  w-[300px] h-[57px];
+    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white w-[400px] h-12  md:w-[300px] md:h-[57px];
 }
 .downIcon{
-    @apply w-7 h-7 ml-60 my-3.5;
+    @apply ml-80 my-1.5 md:w-7 md:h-7 md:ml-60 md:my-3.5;
 }
 .options{
-    @apply p-2 text-sm hover:bg-slate-50 text-white;
+    @apply p-2 text-sm hover:bg-slate-700 text-white;
 }
 .msg{
-    @apply bg-transparent border-[1px] border-white py-4 pl-6 rounded-3xl resize-none h-36 outline-none text-white w-[790px]  ;
+    @apply bg-transparent border-[1px] border-white outline-none text-white rounded-3xl resize-none py-3 pl-3 md:py-4 md:pl-6 h-28 md:h-36  w-[400px] md:w-[790px]  ;
 }
 .field:focus, .fieldEmail:focus, .msg:focus, .selector:focus{
     @apply border-[2px] border-white;
 }
 .placehld{
-    @apply absolute text-white py-4 pl-6  pointer-events-none duration-200;
+    @apply absolute text-white py-3 pl-3 md:py-4 md:pl-6  pointer-events-none duration-200;
 }
 .field:focus~span, .field:valid~span,
 .fieldEmail:focus~span, .fieldEmail:valid~span,
@@ -74,14 +74,14 @@
     @apply bg-transparent border-solid border-2 border-purple-400;
 }
 .checkbox{
-    @apply flex flex-row mr-2;
+    @apply flex flex-row mt-1.5 md:mt-0 mr-2;
 }
 .check{
-    @apply flex items-center ml-2 mb-20;
+    @apply flex md:items-center mt-1 mb-8 ml-11 md:mt-0 md:ml-2 md:mb-20;
 }
 .cbox{
-    @apply w-4 h-4 border-[1px] border-white rounded-sm bg-transparent appearance-none;
+    @apply w-4 h-4 border-[1px] border-white rounded-sm bg-transparent appearance-none cursor-pointer relative transition duration-300 transform scale-100 hover:scale-110  ;
 }
 .tick{
-    @apply w-4 h-4 absolute opacity-0;
+    @apply w-4 h-4 absolute opacity-0 ;
 }
