@@ -3,9 +3,18 @@ import warning from "../../assets/warningIcon.png";
 import check from "../../assets/tick 1.png";
 import downIcon from "../../assets/down-arrow.png";
 import stylesContact from "./ContactUs.module.css";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+/*const schema = yup.object().shape({
+  firstname: yup.string().required(),
+  lastname: yup.string().required(),
+  email: yup.string().email().required(),
+  message: yup.string().required()
+});*/
 function ContactUs() {
   const [countries, setCountries] = useState([]);
-  const [inputValue, setInputValue] = useState()
+  const [inputValue, setInputValue] = useState();
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -15,33 +24,51 @@ function ContactUs() {
         setCountries(data);
       });
   }, []);
+  /*const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const submitForm = (data) => {
+    console.log(data);
+  };*/
   return (
     <section className={stylesContact.sec}>
       <div className={stylesContact.container}>
         <h2 className={stylesContact.title}>How can we help?</h2>
-        <form className={stylesContact.frm}>
+        <form className={stylesContact.frm} /*onSubmit={handleSubmit(submitForm)}*/>
           <div className={stylesContact.row}>
             <div className={stylesContact.content}>
               <div className={stylesContact.inputDiv}>
-                <input className={stylesContact.field} type="text" required />
+                <input
+                  className={stylesContact.field}
+                  type="text"
+                  name="firstname"
+                  /*ref={register}*/
+                  required
+                />
                 <span className={stylesContact.placehld}>First Name*</span>
               </div>
               <div className={stylesContact.warn}>
                 <img className={stylesContact.image} src={warning} />
                 <span className={stylesContact.err}>
-                  Sorry, You've entered incorrect data.
+                  {/*errors.firstname?.message*/}
                 </span>
               </div>
             </div>
             <div className={stylesContact.content}>
               <div className={stylesContact.inputDiv}>
-                <input className={stylesContact.field} type="text" required />
+                <input
+                  className={stylesContact.field}
+                  type="text"
+                  name="lastname"
+                  /*ref={register}*/
+                  required
+                />
                 <span className={stylesContact.placehld}>Last Name*</span>
               </div>
               <div className={stylesContact.warn}>
                 <img className={stylesContact.image} src={warning} />
                 <span className={stylesContact.err}>
-                  Sorry, You've entered incorrect data.
+                  {/*errors.lastname?.message*/}
                 </span>
               </div>
             </div>
@@ -52,6 +79,8 @@ function ContactUs() {
                 <input
                   className={stylesContact.fieldEmail}
                   type="text"
+                  name="email"
+                  /*ref={register}*/
                   required
                 />
                 <span className={stylesContact.placehld}>Email*</span>
@@ -59,7 +88,7 @@ function ContactUs() {
               <div className={stylesContact.warn}>
                 <img className={stylesContact.image} src={warning} />
                 <span className={stylesContact.err}>
-                  Sorry, You've entered incorrect data.
+                  {/*errors.email?.message*/}
                 </span>
               </div>
             </div>
@@ -98,13 +127,18 @@ function ContactUs() {
           </div>
           <div className={stylesContact.txtarea}>
             <div className={stylesContact.inputDivTxt}>
-              <textarea className={stylesContact.msg} required />
-              <span className={stylesContact.placehld}>Massage*</span>
+              <textarea
+                className={stylesContact.msg}
+                name="message"
+                /*ref={register}*/
+                required
+              />
+              <span className={stylesContact.placehld}>Message*</span>
             </div>
             <div className={stylesContact.warn}>
               <img className={stylesContact.image} src={warning} />
               <span className={stylesContact.err}>
-                Sorry, You've entered incorrect data.
+                {/*errors.message?.message*/}
               </span>
             </div>
           </div>
