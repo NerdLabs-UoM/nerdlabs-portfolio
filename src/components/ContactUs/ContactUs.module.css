@@ -1,15 +1,15 @@
 .sec{
-    @apply bg-black mx-auto bg-[url('../../assets/Eclipse.png')] bg-[length:450px_450px] md:bg-[length:800px_800px] bg-no-repeat bg-right-top h-auto md:h-screen;
+    @apply bg-black mx-auto bg-[url('../../assets/Eclipse.png')] bg-[length:450px_450px] md:bg-[length:600px_600px] lg:bg-[length:800px_800px] bg-no-repeat bg-right-top h-auto;
 }
 
 .frm{
-    @apply flex flex-col justify-center items-center py-4 my-4 md:grid md:py-10 md:my-8;
+    @apply flex flex-col justify-center items-center py-4 mt-4 md:grid md:py-10 md:mt-8 ;
 }
 .title{
-    @apply  text-white text-3xl md:text-4xl font-semibold pt-2 text-center md:flex md:ml-20 lg:ml-40 xl:ml-80 md:my-0 md:pt-10;
+    @apply  text-white text-3xl md:text-4xl font-semibold pt-3 text-center md:flex md:ml-20 lg:ml-40 xl:ml-80 md:my-0 md:pt-10;
 }
 .content{
-    @apply mb-4 md:mr-5 md:mb-0;
+    @apply mb-4 h-[75px] md:mr-5 md:mb-0 md:h-24;
 }
 .row{
     @apply grid grid-cols-1 md:flex md:flex-row md:mb-3 ;
@@ -25,23 +25,28 @@
     @apply h-28 md:h-36 md:py-0;
 }
 .field, .fieldEmail{
-    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white py-3 pl-3 w-[400px] md:py-4 md:pl-6 md:w-96   ;
+    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white py-3 pl-3 w-[400px] md:py-4 md:pl-6 md:w-72 lg:w-96  ;
 }
 .fieldEmail{
-    @apply w-[400px] md:w-[470px];
+    @apply w-[400px] md:w-[350px] lg:w-[470px];
 }
-
 .selector{
-    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white w-[400px] h-12  md:w-[300px] md:h-[57px];
+    @apply bg-transparent border-[1px] border-white rounded-full outline-none text-white w-[400px] h-12  md:w-[225px] md:h-[57px] lg:w-[300px];
+}
+.selector:active{
+    @apply border-white border-[2px];
 }
 .downIcon{
-    @apply ml-80 my-1.5 md:w-7 md:h-7 md:ml-60 md:my-3.5;
+    @apply ml-80 my-1.5 md:w-7 md:h-7 md:ml-40 lg:ml-60 md:my-3.5;
 }
 .options{
     @apply p-2 text-sm hover:bg-slate-700 text-white;
 }
 .msg{
-    @apply bg-transparent border-[1px] border-white outline-none text-white rounded-3xl resize-none py-3 pl-3 md:py-4 md:pl-6 h-28 md:h-36  w-[400px] md:w-[790px]  ;
+    @apply bg-transparent border-[1px] border-white outline-none text-white rounded-3xl resize-none py-3 pl-3 md:py-4 md:pl-6 h-28 md:h-36  w-[400px] md:w-[600px] lg:w-[790px]  ;
+}
+.txtarea{
+    @apply h-[130px] md:h-[170px];
 }
 .field:focus, .fieldEmail:focus, .msg:focus, .selector:focus{
     @apply border-[2px] border-white;
@@ -55,17 +60,20 @@
 {
     @apply text-slate-400 text-xs transform translate-x-[-5px] py-1;
 }
-.warn{
-    @apply flex flex-row items-center py-0 pl-3 mt-1;
+.warn, .warn2{
+    @apply py-0 pl-4 mt-1;
+}
+.warn2{
+    @apply ml-12 md:ml-0;
 }
 .err{
-    @apply text-red-600;
+    @apply text-red-600 ml-1 text-sm;
 }
 .image{
-    @apply w-4 h-4;
+    @apply w-3.5 h-3.5;
 }
 .lbl{
-    @apply text-white;
+    @apply text-white cursor-pointer;
 }
 .bttn{
     @apply border-solid border-purple-600 border-2 bg-purple-600 text-white text-sm font-semibold ml-1 py-1.5 px-4 rounded-full w-28 items-center justify-center;
@@ -73,15 +81,27 @@
 .bttn:hover{
     @apply bg-transparent border-solid border-2 border-purple-400;
 }
+.bttn:active{
+    @apply bg-fuchsia-600 border-fuchsia-600;
+}
 .checkbox{
     @apply flex flex-row mt-1.5 md:mt-0 mr-2;
 }
+.checkbox:hover{
+    @apply bg-fuchsia-900;
+}
+.accept{
+    @apply flex flex-col justify-center h-24 mb-8 md:h-20 md:mb-12;
+}
 .check{
-    @apply flex md:items-center mt-1 mb-8 ml-11 md:mt-0 md:ml-2 md:mb-20;
+    @apply flex md:items-center mt-2 ml-11 md:ml-2 ;
 }
 .cbox{
-    @apply w-4 h-4 border-[1px] border-white rounded-sm bg-transparent appearance-none cursor-pointer relative transition duration-300 transform scale-100 hover:scale-110  ;
+    @apply w-4 h-4 border-[1px] border-white rounded-sm appearance-none bg-transparent relative cursor-pointer;
 }
 .tick{
-    @apply w-4 h-4 absolute opacity-0 ;
+    @apply w-4 h-4 absolute transform scale-0 translate-x-0;
+}
+.cbox:checked ~ .tick{
+    @apply transform scale-100 translate-x-0 opacity-100;
 }

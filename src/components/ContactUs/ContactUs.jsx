@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-import warning from "../../assets/warningIcon.png";
 import check from "../../assets/tick 1.png";
 import downIcon from "../../assets/down-arrow.png";
 import stylesContact from "./ContactUs.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-/*const schema = yup.object().shape({
-  firstname: yup.string().required(),
-  lastname: yup.string().required(),
-  email: yup.string().email().required(),
-  message: yup.string().required()
-});*/
+import { registerSchema } from "../../schema/formSchema";
 function ContactUs() {
   const [countries, setCountries] = useState([]);
-  const [inputValue, setInputValue] = useState();
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -24,17 +17,20 @@ function ContactUs() {
         setCountries(data);
       });
   }, []);
-  /*const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(schema),
+  const { register, handleSubmit, formState: { errors }, } = useForm({
+    resolver: yupResolver(registerSchema),
   });
+  console.log(errors);
   const submitForm = (data) => {
     console.log(data);
-  };*/
+  };
   return (
     <section className={stylesContact.sec}>
       <div className={stylesContact.container}>
         <h2 className={stylesContact.title}>How can we help?</h2>
-        <form className={stylesContact.frm} /*onSubmit={handleSubmit(submitForm)}*/>
+        <form
+          className={stylesContact.frm} onSubmit={handleSubmit(submitForm)}
+        >
           <div className={stylesContact.row}>
             <div className={stylesContact.content}>
               <div className={stylesContact.inputDiv}>
@@ -42,16 +38,19 @@ function ContactUs() {
                   className={stylesContact.field}
                   type="text"
                   name="firstname"
-                  /*ref={register}*/
+                  {...register("firstname")}
                   required
                 />
                 <span className={stylesContact.placehld}>First Name*</span>
               </div>
               <div className={stylesContact.warn}>
-                <img className={stylesContact.image} src={warning} />
-                <span className={stylesContact.err}>
-                  {/*errors.firstname?.message*/}
-                </span>
+                {errors.firstname ? (
+                  <span className={stylesContact.err}>
+                    {errors.firstname.message}
+                  </span>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
             <div className={stylesContact.content}>
@@ -60,16 +59,19 @@ function ContactUs() {
                   className={stylesContact.field}
                   type="text"
                   name="lastname"
-                  /*ref={register}*/
+                  {...register("lastname")}
                   required
                 />
                 <span className={stylesContact.placehld}>Last Name*</span>
               </div>
               <div className={stylesContact.warn}>
-                <img className={stylesContact.image} src={warning} />
-                <span className={stylesContact.err}>
-                  {/*errors.lastname?.message*/}
-                </span>
+                {errors.lastname ? (
+                  <span className={stylesContact.err}>
+                    {errors.lastname.message}
+                  </span>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>
@@ -80,16 +82,19 @@ function ContactUs() {
                   className={stylesContact.fieldEmail}
                   type="text"
                   name="email"
-                  /*ref={register}*/
+                  {...register("email")}
                   required
                 />
                 <span className={stylesContact.placehld}>Email*</span>
               </div>
               <div className={stylesContact.warn}>
-                <img className={stylesContact.image} src={warning} />
-                <span className={stylesContact.err}>
-                  {/*errors.email?.message*/}
-                </span>
+                {errors.email ? (
+                  <span className={stylesContact.err}>
+                    {errors.email.message}
+                  </span>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
             <div className={stylesContact.content}>
@@ -98,30 +103,30 @@ function ContactUs() {
                   onClick={() => setOpen(!open)}
                   className={stylesContact.selector}
                 >
-                  <span className={stylesContact.placehld}>Country*</span>
+                  <span className={stylesContact.placehld}>
+                    {selected ? selected : "Country*"}
+                  </span>
                   <img className={stylesContact.downIcon} src={downIcon} />
                 </div>
                 <ul
-                  className={` bg-purple-700 mt-1 ml-6 w-[350px] md:w-[250px] overflow-y-auto z-[1] absolute ${
-                    open ? "max-h-48" : "max-h-0"
-                  }`}
+                  className={` bg-purple-700 mt-1 ml-6 w-[350px] md:w-[180px] lg:w-[250px] overflow-y-auto z-[1] absolute ${open ? "max-h-48" : "max-h-0"
+                    }`}
                 >
                   {countries?.map((country) => (
                     <li
                       key={country?.name}
                       className={stylesContact.options}
                       onClick={() => {
-                        if (country?.name !== selected) setSelected();
+                        if (country?.name !== selected) {
+                          setSelected(country?.name);
+                          setOpen(false);
+                        }
                       }}
                     >
                       {country?.name}
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className={stylesContact.warn}>
-                <img className={stylesContact.image} src={warning} />
-                <span className={stylesContact.err}>Sorry...</span>
               </div>
             </div>
           </div>
@@ -130,26 +135,40 @@ function ContactUs() {
               <textarea
                 className={stylesContact.msg}
                 name="message"
-                /*ref={register}*/
+                {...register("message")}
                 required
               />
               <span className={stylesContact.placehld}>Message*</span>
             </div>
             <div className={stylesContact.warn}>
-              <img className={stylesContact.image} src={warning} />
-              <span className={stylesContact.err}>
-                {/*errors.message?.message*/}
-              </span>
+              {errors.message ? (
+                <span className={stylesContact.err}>
+                  {errors.message.message}
+                </span>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
-          <div className={stylesContact.check}>
-            <div className={stylesContact.checkbox}>
-              <input className={stylesContact.cbox} type="checkbox" />
-              <img className={stylesContact.tick} src={check} />
+          <div className= {stylesContact.accept}>
+            <div className={stylesContact.check}>
+              <div className={stylesContact.checkbox}>
+                <input className={stylesContact.cbox} type="checkbox" name="remember" value="" />
+                <img className={stylesContact.tick} src={check} />
+              </div>
+              <label className={stylesContact.lbl}>
+                I have read and accept the Legal Notice and the Privacy Policy.
+              </label>
             </div>
-            <label className={stylesContact.lbl}>
-              I have read and accept the Legal Notice and the Privacy Policy.
-            </label>
+            <div className={stylesContact.warn2}>
+              {errors.remember ? (
+                <span className={stylesContact.err}>
+                  {errors.remember.message}
+                </span>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
           <div className={stylesContact.btn}>
             <button className={stylesContact.bttn} type="submit">
