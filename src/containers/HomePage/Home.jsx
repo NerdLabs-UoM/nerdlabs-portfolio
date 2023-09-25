@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-function Home() {
-  return (
-    <div>Home</div>
-  )
+class Home extends Component {
+  state = {  } 
+  render() { 
+    return (<React.Fragment>
+
+    </React.Fragment>);
+  }
 }
-
-export default Home
+ 
+export default Home;

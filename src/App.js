@@ -1,16 +1,12 @@
-import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import Home from './containers/HomePage/Home';
+import "./App.css";
+import WebCards from "./components/WebCards/CardSection/WebCards";
+import Home from "./containers/HomePage/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <NavBar />
-      </header>
-      <body className="App-body">
-        <Home/>
-      </body>
+    <div>
+      <Home />
+      <WebCards />
     </div>
   );
 }
