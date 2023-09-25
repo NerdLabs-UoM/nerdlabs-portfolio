@@ -1,4 +1,5 @@
 import React from 'react'
+import NavBarMd from './NavBarMd';
 
 const navigation =[
   { name: 'Home', href: '#', current: true },
@@ -14,8 +15,10 @@ function classNames(...classes) {
 
 function NavLinks() {
   return (
-    <div className="hidden md:block">
-      <div className="ml-10 flex item-baseline space-x-4">
+    <div className='flex items-center justify-between p-6 lg:px-8' aria-label='Global'>
+      <NavBarMd/>
+      <div className="hidden md:block">
+      <div className="hidden lg:flex lg:gap-x-12">
         {navigation.map((item) => (
           <a
             key={item.name}
@@ -33,6 +36,8 @@ function NavLinks() {
         ))}
       </div>
     </div>
+    </div>
+    
   );
 }
 
