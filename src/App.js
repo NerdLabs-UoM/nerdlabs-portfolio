@@ -1,12 +1,12 @@
-import "./App.css";
-import WebCards from "./components/WebCards/CardSection/WebCards";
-import Home from "./containers/HomePage/Home";
+import './App.css';
+import AboutUs from './components/AboutUs/AboutUS';
+import NavBar from './components/NavBar/NavBar';
+import Home from './containers/HomePage/Home';
 
 function App() {
   return (
-    <div>
-      <Home />
-      <WebCards />
+    <div className="App">
+      <AboutUs/>
     </div>
   );
 }
