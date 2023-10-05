@@ -1,27 +1,33 @@
 * {
-  @apply bg-black md:shrink-0 text-center  p-0  ;
+  @apply bg-black md:shrink-0 text-center  p-0   ;
 }
 .topic1 {
-  @apply bg-black  justify-center  flex font-bold  text-7xl  mt-20  pr-4;
+  @apply bg-black  justify-center  flex font-bold  text-7xl  mt-20  pr-4 md:ml-10 lg:ml-10  ;
 }
 .intro1{
   @apply justify-center flex text-center text-lg  mt-20;
 }
+.box1{
+  @apply ml-0;
+}
+.icon{
+  @apply text-4xl justify-center ml-24; 
+}
 .images{
-  @apply grid grid-flow-col  columns-3 ;
+  @apply justify-center flex text-center text-lg mt-20;
 }
-.card{
-  @apply mt-8  grid grid-cols-3 
-}
-.subtitle{
-  @apply bg-red-600 justify-center flex mt-10   ml-36  font-bold text-lg pr-4;
+
+.subtitle1{
+  @apply justify-center flex text-center text-lg mt-4;
 }
 .img1 {
-  @apply w-52 md:w-32  lg:w-48 h-auto justify-center flex mt-10 mx-16  ml-10   ;
+  @apply w-20 md:w-32  lg:w-48  h-32 mt-12 ml-8;
 }
+/*
 .img2 {
   @apply w-52 md:w-32  lg:w-48 h-auto justify-center flex  mt-10 mx-16  ml-16  ;
-}
+}h-auto justify-center flex mt-10 mx-16  ml-10 
 .img3 {
   @apply w-52 md:w-32  lg:w-48 h-auto justify-center flex  mt-10  mx-12 ml-8 mr-48 ; 
 }
+*/

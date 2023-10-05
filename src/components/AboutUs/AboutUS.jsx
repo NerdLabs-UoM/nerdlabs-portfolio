@@ -6,6 +6,11 @@ import image2 from "../AboutUs/aboutus2.png";
 import image3 from "../AboutUs/aboutus3.png";
 import container from "../AboutUs/cube.png";
 
+import { MdMarkEmailUnread } from "react-icons/md";
+import {GiCyberEye} from "react-icons/gi";
+import {BsBlockquoteRight} from "react-icons/bs"
+
+
 export default function AboutUs() {
   return (
     <div>
@@ -24,12 +29,31 @@ export default function AboutUs() {
         </span>
       </div>
 
-      <div>
-        <div className={stylescontent.images}>
-          <div className={stylescontent.card}>
-            <span className={stylescontent.subtitle1}>Cyber Security</span>
-            <img className={stylescontent.img1} src={image1} alt="image1" />
+      <div className={stylescontent.images}>
+      <div className={stylescontent.box1}>
+        <div className={stylescontent.icon} style={{ color: " green" }}>
+            <MdMarkEmailUnread />
           </div>
+          <span className={stylescontent.subtitle1} style={{ color:" green"}}>Cyber Security</span>
+          <img className={stylescontent.img1} src={image1} alt="image1" />
+        </div>
+        <div>
+        <div className={stylescontent.icon}  style={{ color: " green" }}>
+            <GiCyberEye />
+          </div>
+          <span className={stylescontent.subtitle1} style={{ color:" green"}}>Cloud Computing</span>
+          <img className={stylescontent.img1} src={image2} alt="image1" />
+        </div>
+       
+        {/*<div className={stylescontent.images}>
+          <div className={stylescontent.card}>
+
+          <div> 
+            
+            <span className={stylescontent.subtitle1} style={{ color:" violet"}}>Cyber Security</span>
+        
+            <img className={stylescontent.img1} src={image1} alt="image1" />
+          </div></div>
           <div className={stylescontent.card}>
             <img className={stylescontent.img2} src={image2} alt="image2" />
           </div>
@@ -38,7 +62,17 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      </div>
+      </div>  */}
+
   
+        <div>
+        <div className={stylescontent.icon}  style={{ color: " green"}}>
+            <BsBlockquoteRight />
+          </div>
+          <span className={stylescontent.subtitle1} style={{ color:" green"}}>BlockChain Development</span>
+          <img className={stylescontent.img1} src={image3} alt="image1" />
+        </div>
+        </div>
+        </div>
   );
 }
