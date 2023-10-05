@@ -4,7 +4,8 @@ import stylescontent from "./AboutUs.module.css";
 import image1 from "../AboutUs/aboutus1.png";
 import image2 from "../AboutUs/aboutus2.png";
 import image3 from "../AboutUs/aboutus3.png";
-import container from "../AboutUs/cube.png";
+
+
 
 import { MdMarkEmailUnread } from "react-icons/md";
 import {GiCyberEye} from "react-icons/gi";
@@ -13,6 +14,7 @@ import {BsBlockquoteRight} from "react-icons/bs"
 
 export default function AboutUs() {
   return (
+    
     <div>
       
      
